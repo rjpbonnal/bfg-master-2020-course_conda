@@ -431,5 +431,141 @@ conda list
 conda deactivate
 ```
 
-# Jupiter notebook
+# Conda requirements file
+
+## Conda requirements file
+Once you have a conda virtual environment with packages installed inside, it is possible to create a **"requirements"** file to be used to boost the creation of a new virtual environments identical to the first.
+
+. . .
+
+Enter inside the **snowflakes** environment
+
+```bash
+conda activate snowflakes
+```
+. . .
+
+Create the requirements file
+
+```bash
+conda list -e > requirements.txt
+``` 
+. . .
+
+Deactivate the environment
+```bash
+conda deactivate
+```
+----
+
+Now you could create a new environment using the **requirement.txt** file to tell conda which packages it has to install
+
+```bash
+conda create -n "snowflakes_copy" --file requirements.txt
+```
+. . .
+
+Verify it
+
+```bash
+conda activate snowflakes_copy
+```
+```bash
+conda list
+```
+. . .
+
+Finally exit from the ennvironment
+
+```bash
+conda deactivate snowflakes_copy
+```
+
+# Conda useful commands
+
+## Conda useful commands
+
+Remove packages
+
+```bash
+conda remove PACKAGE_NAME
+```
+. . .
+
+Remove environments (with all their packages)
+
+```bash
+conda env remove -n ENVIRONEMNT_NAME
+```
+. . .
+
+Clone an environment
+```bash
+conda create --name MYCLONE --clone MYENV
+```
+
+# Jupyter notebook
+
+## Jupyter notebook
+The notebook provides a web-based application suitable for capturing the whole computation process: developing, documenting, and executing code, as well as communicating the results. The Jupyter notebook combines two components
+
+1. **A web application**: a browser-based tool for interactive developing.
+
+2. **Notebook documents**: a representation of all content visible in the web application, including inputs and outputs of the computations, explanatory text, mathematics, images, and rich media representations of objects.
+
+----
+
+Main features
+
+- In-browser editing for code
+- The ability to execute code from the browser
+- Displaying the result of computation using rich media representations
+- In-browser editing for rich text using the Markdown markup language
+
+----
+
+## Install Jupyter Notebook
+First of all create a new environment called **jup_note** and activate it
+
+. . .
+
+Then install the package **notebook** from the channel **conda-forge**
+
+. . .
+
+```bash
+conda create -n jup_note
+conda activate jup_note
+conda install notebook --channel conda-forge
+```
+
+## Running Jupyter Notebook
+Inside the **jup_note** environment, activate jupyter notebook by typing:
+
+```bash
+jupyter notebook
+```
+. . .
+
+This will print some information about the notebook server in your console, and open a web browser to the URL of the web application
+
+# Jupyter and Conda
+
+## Jupyter and Conda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
