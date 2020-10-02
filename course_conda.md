@@ -552,18 +552,175 @@ This will print some information about the notebook server in your console, and 
 # Jupyter and Conda
 
 ## Jupyter and Conda
+With conda you can manage your packages and virtual environments.
 
+With Jupyter notebook you have a powerful graphical tool for coding with **python 3**.
 
+. . .
 
+What about if i need to use **numpy** (a python module) in my jupyter notebook?
 
+. . .
 
+I have to install **numpy** in my **jup-note** virtual environment.
 
+----
 
+What about if i need to use **pandas** (a python module) in my jupyterotebook?
 
+. . .
 
+I have to install **pandas** in my **jup-note** virtual environment.
 
+----
 
+What about if i need to use **scanpy** (a python module) in my jupyterotebook?
 
+. . .
+
+I have to install **scanpy** in my **jup-note** virtual environment.
+
+----
+
+And so on for every package you need for all of your pipelines.
+
+. . .
+
+But in this way your **jup_note** environment will soon become full of packages generating conflicts.
+
+----
+
+Other question:
+
+. . .
+
+Waht about if i have to use in my jupyter notebook **numpy 1.19** (the current release) and then for another project i have to use numpy **1.12** (an older release)?
+
+. . . 
+
+Or if i want to use jupyter notebook with  **Python 2**?
+
+# ipykernel
+
+## ipykernel
+The answer for all these questions is a package called ipykernel.
+
+. . .
+
+Basically it allows to create new **notebook kernel** for jupyter notebook from any conda virtual environment.
+
+----
+
+But what is a **notebook kernel**?
+
+. . .
+
+A **notebook kernel** is a **computational engine** that executes the code contained in a Notebook document.
+
+. . .
+
+> When you open a Notebook document, the associated kernel is automatically launched. When the notebook is executed (either cell-by-cell or with menu Cell -> Run All), the kernel performs the computation and produces the results. Depending on the type of computations, the kernel may consume significant CPU and RAM. 
+
+---
+
+In other words, the **jupyter kernel** is a sort of environment in which the code executed by the notebooks runs.
+
+. . .
+
+So you could create 
+
+- a virtual environment for **numpy 1.19**
+- a virtual environment for **numpy 1.12**
+- a virtual environment for **python 2**.
+
+. . .
+
+and consequently create a 3 different kernels from them.
+
+----
+
+Once many kernels are generated, every time you create a new notebook, you could chose which kernel to use for it.
+
+. . .
+
+In other words you can chose in which virtual environemnt a notebook must run.
+
+## Generating new kernels
+
+1. Create a Conda environment
+
+. . .
+
+```bash
+conda create --name numpy112
+```
+
+2. Activate the environment
+
+. . .
+
+```bash
+conda activate numpy112
+```
+
+3. Install the package you need
+
+. . .
+
+```bash
+conda install numpy==1.12.1
+```
+----
+
+4. Install ipykernel
+
+. . .
+
+```bash
+conda install ipykernel
+```
+
+5. Generate the new kernel from the activated virtual environment
+
+. . .
+
+```bash
+python -m ipykernel install --user --name=numpy-1-12-1
+```
+----
+
+Now exit from this environment and activate the **jup_note** environment.
+
+. . .
+
+Then start the jupyter notebook.
+
+. . .
+
+Comments?
+
+## Try it!!!
+
+Create a new **notebook kernel** with the latest version of python and the following packages and call it **course_python**.
+
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- scipy
+- sklearn
+- biopython
+- networkx
+- igraph
+
+----
+
+Create 2 new **notebook kernel**, the first for a specified version of **R** and the second fo your future **single cell sequencing analysis course** with **scanpy 1.6**.
+
+Use the requirement.txt files provided for making these **kernels** and call them:
+
+- R-version
+- scanpy-version
 
 
 
