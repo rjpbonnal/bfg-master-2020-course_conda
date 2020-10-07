@@ -263,7 +263,7 @@ To exit from the **snowflakes** virtual environment and return to your **base** 
 
 
 ```bash
-conda deactivate.
+conda deactivate
 ```
 
 . . .
